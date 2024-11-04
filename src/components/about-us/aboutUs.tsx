@@ -1,5 +1,6 @@
 import React from 'react';
 import About from './about';
+import OurFounders from './ourFounders';
 import Values from './values';
 
 const AboutUs: React.FC = () => {
@@ -30,10 +31,7 @@ const AboutUs: React.FC = () => {
 
       {/* Section 4 */}
       <div className="px-6 py-8 bg-gray-100 rounded-lg">
-        <h3 className="text-xl font-semibold mb-2">Our Values</h3>
-        <p className="text-gray-700">
-          Integrity, collaboration, and customer satisfaction are at the core of our operations.
-        </p>
+        <OurFounders />
       </div>
     </div>
   );
