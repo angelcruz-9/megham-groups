@@ -10,14 +10,14 @@ const ContactUs: React.FC = () => {
   return (
     <div className="space-y-16">
       {/* Section 1: Full-width Image with Text Overlay */}
-      <div className="relative w-full h-[400px]">
+      <div className="relative w-full h-[400px] md:h-[500px]">
         <img
-          src="/path/to/image.jpg"
+          src={`${process.env.PUBLIC_URL}/assets/contact.avif`}
           alt="Contact Us Background"
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-          <h2 className="text-3xl font-bold text-white">Let's Be in Touch</h2>
+          <h2 className="text-3xl font-bold text-white px-4">Let's Be in Touch</h2>
         </div>
       </div>
 
@@ -58,7 +58,7 @@ const ContactUs: React.FC = () => {
       </div>
 
       {/* Section 3: Accordion for Locations */}
-      <div className="max-w-3xl mx-auto">
+      <div className="max-w-3xl container mx-auto">
         <h3 className="text-2xl font-semibold mb-4 text-center">Our Locations</h3>
         <div className="space-y-4">
           {['India', 'USA'].map((country) => (
@@ -71,7 +71,7 @@ const ContactUs: React.FC = () => {
                 <span>{activeAccordion === country ? '-' : '+'}</span>
               </button>
               {activeAccordion === country && (
-                <div className="p-4 bg-white rounded-lg shadow-inner mt-2 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="p-4 bg-white rounded-lg shadow-inner mt-2 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                   <div className="bg-gray-100 p-4 rounded-lg">
                     <h4 className="font-semibold text-gray-800">Office 1</h4>
                     <p className="text-gray-600">

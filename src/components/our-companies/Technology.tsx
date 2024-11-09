@@ -99,58 +99,55 @@ const productsData: CardData[] = [
 
 const Technology: React.FC = () => {
   return (
-    <div className="px-6 py-8">
-      <div className="grid lg:grid-cols-1 gap-8">
-        {/* Services Section */}
-        <div>
-          <h3 className="text-xl font-semibold mb-4">Services</h3>
-          <div className="grid sm:grid-cols-4 gap-6">
-            {servicesData.map((service, index) => (
-              <div
-                key={index}
-                className="bg-white shadow-md rounded-lg overflow-hidden w-80 h-[400px] transform hover:scale-105 transition duration-300 mx-auto cursor-pointer"
-              >
-                <img src={service.image} alt={service.companyName} className="w-full h-40 object-cover" />
-                <div className="p-4 flex flex-col justify-between h-[200px]">
-                  <div className="mb-4">
-                    {/* <img src={service.logo} alt={`${service.companyName} Logo`} className="w-16 h-16 mb-2" /> */}
-                    <p className="text-gray-700 mt-2">{service.description}</p>
-                  </div>
-                  <div className="flex justify-end">
-                    <a href="#" className="text-blue-500 hover:underline font-semibold">Learn More</a>
-                  </div>
+    <div className="px-4 py-8">
+    <div className="space-y-8">
+      {/* Services Section */}
+      <div>
+        <h3 className="text-2xl font-semibold mb-6 text-center md:text-left">Services</h3>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          {servicesData.map((service, index) => (
+            <div
+              key={index}
+              className="bg-white shadow-md rounded-lg overflow-hidden transform hover:scale-105 transition duration-300 h-96"
+            >
+              <img src={service.image} alt="" className="w-full h-40 object-cover" />
+              <div className="p-4 flex flex-col justify-between h-[200px]">
+                <div className="mb-4">
+                  <p className="text-gray-700 mt-2">{service.description}</p>
+                </div>
+                <div className="flex justify-end">
+                  <a href="#" className="text-blue-500 hover:underline font-semibold">Learn More</a>
                 </div>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
+      </div>
 
-        {/* Products Section */}
-        <div>
-          <h3 className="text-xl font-semibold mb-4">Products</h3>
-          <div className="grid sm:grid-cols-4 gap-6">
-            {productsData.map((product, index) => (
-              <div
-                key={index}
-                className="bg-white shadow-md rounded-lg overflow-hidden w-80 h-[400px] transform hover:scale-105 transition duration-300 mx-auto cursor-pointer"
-              >
-                <img src={product.image} alt={product.companyName} className="w-full h-40 object-cover" />
-                <div className="p-4 flex flex-col justify-between h-[200px]">
-                  <div className="mb-4">
-                    {/* <img src={product.logo} alt={`${product.companyName} Logo`} className="w-16 h-16 mb-2" /> */}
-                    <p className="text-lg font-bold text-gray-900">{product.companyName}</p>
-                    <p className="text-gray-700 mt-2">{product.description}</p>
-                  </div>
-                  <div className="flex justify-end">
-                    <a href="#" className="text-blue-500 hover:underline font-semibold">Learn More</a>
-                  </div>
+      {/* Products Section */}
+      <div>
+        <h3 className="text-2xl font-semibold mb-6 text-center md:text-left">Products</h3>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          {productsData.map((product, index) => (
+            <div
+              key={index}
+              className="bg-white shadow-md rounded-lg overflow-hidden transform hover:scale-105 transition duration-300"
+            >
+              <img src={product.image} alt="" className="w-full h-40 object-cover" />
+              <div className="p-4 flex flex-col justify-between h-[200px]">
+                <div className="mb-4">
+                  <p className="text-gray-700 mt-2">{product.description}</p>
+                </div>
+                <div className="flex justify-end">
+                  <a href="#" className="text-blue-500 hover:underline font-semibold">Learn More</a>
                 </div>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
       </div>
     </div>
+  </div>
   );
 };
 

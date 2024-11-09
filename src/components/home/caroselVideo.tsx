@@ -48,7 +48,7 @@ const CarouselVideo: React.FC<CarouselVideoProps> = ({ data, timerInterval = 100
   };
 
   return (
-    <div className="relative w-screen h-[92vh] flex items-center justify-center overflow-hidden bg-black">
+    <div className="relative w-full h-screen flex items-center justify-center overflow-hidden bg-black">
       {/* Video Section */}
       <div
         className={`w-full h-full absolute transition-opacity duration-500 ease-in-out ${
@@ -56,7 +56,7 @@ const CarouselVideo: React.FC<CarouselVideoProps> = ({ data, timerInterval = 100
         }`}
       >
         <video
-          className="w-full h-[92vh] object-cover"
+          className="w-full h-full object-cover"
           src={data[currentIndex].video}
           autoPlay
           loop
@@ -66,24 +66,28 @@ const CarouselVideo: React.FC<CarouselVideoProps> = ({ data, timerInterval = 100
 
       {/* Overlay for Title and Description */}
       <div
-        className={`absolute bottom-14 left-44 bg-opacity-50 text-white p-4 rounded transition-transform duration-500 ease-in-out ${
+        className={`absolute bottom-8 left-6 sm:left-10 md:left-20 lg:left-44 bg-opacity-50 text-white p-4 rounded transition-transform duration-500 ease-in-out ${
           isTransitioning ? 'opacity-0 translate-y-4' : 'opacity-100 translate-y-0'
         }`}
       >
-        <h2 className="text-6xl font-bold pb-4 tracking-wider">{data[currentIndex].title}</h2>
-        <p className="text-2xl w-2/4 tracking-wide">{data[currentIndex].description}</p>
+        <h2 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold pb-2 sm:pb-4 tracking-wider">
+          {data[currentIndex].title}
+        </h2>
+        <p className="text-base sm:text-lg md:text-xl lg:text-2xl w-5/6 sm:w-3/4 lg:w-2/4 tracking-wide">
+          {data[currentIndex].description}
+        </p>
       </div>
 
       {/* Navigation Arrows */}
       <button
         onClick={handlePrevious}
-        className="absolute left-4 text-white text-6xl bg-opacity-50 p-2 cursor-pointer"
+        className="absolute left-2 sm:left-4 text-white text-4xl sm:text-5xl lg:text-6xl bg-opacity-50 p-2 cursor-pointer"
       >
         ‹
       </button>
       <button
         onClick={handleNext}
-        className="absolute right-4 text-white text-6xl bg-opacity-50 p-2 cursor-pointer"
+        className="absolute right-2 sm:right-4 text-white text-4xl sm:text-5xl lg:text-6xl bg-opacity-50 p-2 cursor-pointer"
       >
         ›
       </button>
@@ -94,7 +98,7 @@ const CarouselVideo: React.FC<CarouselVideoProps> = ({ data, timerInterval = 100
           <button
             key={index}
             onClick={() => goToIndex(index)}
-            className={`w-10 h-1 rounded-full ${
+            className={`w-6 h-1 sm:w-8 sm:h-1 md:w-10 rounded-full ${
               index === currentIndex ? 'bg-white' : 'bg-gray-400'
             }`}
           ></button>
