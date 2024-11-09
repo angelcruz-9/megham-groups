@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 
 interface VideoData {
   video: string;
@@ -15,29 +15,22 @@ const CarouselVideo: React.FC<CarouselVideoProps> = ({ data, timerInterval = 100
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
 
-  // Auto-advance carousel every few seconds
-  useEffect(() => {
-    const interval = setInterval(() => {
-      handleNext();
-    }, timerInterval);
-    return () => clearInterval(interval); // Clear interval on unmount
-  }, [data.length, timerInterval]);
-
-  const handlePrevious = () => {
+  // Use useCallback to memoize handleNext and handlePrevious functions
+  const handlePrevious = useCallback(() => {
     setIsTransitioning(true);
     setTimeout(() => {
       setCurrentIndex((prevIndex) => (prevIndex - 1 + data.length) % data.length);
       setIsTransitioning(false);
     }, 500); // Transition duration
-  };
+  }, [data.length]);
 
-  const handleNext = () => {
+  const handleNext = useCallback(() => {
     setIsTransitioning(true);
     setTimeout(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % data.length);
       setIsTransitioning(false);
     }, 500); // Transition duration
-  };
+  }, [data.length]);
 
   const goToIndex = (index: number) => {
     setIsTransitioning(true);
@@ -46,6 +39,13 @@ const CarouselVideo: React.FC<CarouselVideoProps> = ({ data, timerInterval = 100
       setIsTransitioning(false);
     }, 500); // Transition duration
   };
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      handleNext();
+    }, timerInterval);
+    return () => clearInterval(interval); // Clear interval on unmount
+  }, [handleNext, timerInterval]); // Include handleNext in dependency array
 
   return (
     <div className="relative w-full h-screen flex items-center justify-center overflow-hidden bg-black">

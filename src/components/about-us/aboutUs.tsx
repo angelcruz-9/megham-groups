@@ -10,7 +10,7 @@ const AboutUs: React.FC = () => {
       <div className="relative w-full h-[300px] sm:h-[400px] lg:h-[500px]">
         <img
           src={`${process.env.PUBLIC_URL}/assets/about-us-main.jpeg`}
-          alt="About Us Image"
+          alt="About Us"
           className="w-full h-full object-cover"
         />
         <div className="absolute bottom-4 left-4 sm:left-10 lg:left-28 bg-opacity-60 text-white p-4 rounded-md max-w-[90%] sm:max-w-[80%] lg:max-w-[50%]">
