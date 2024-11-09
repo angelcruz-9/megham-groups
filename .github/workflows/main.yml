@@ -24,16 +24,10 @@ jobs:
       - name: Build the project
         run: npm run build
 
-      - name: List build directory
-        run: ls -R build
-
-      - name: Install gh-pages
-        run: npm install -g gh-pages
-
       - name: Deploy to GitHub Pages
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ACTIONS_PAT: ${{ secrets.ACTIONS_PAT }}
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-          npx gh-pages -d build --repo https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
+          npx gh-pages -d build --repo https://x-access-token:${{ secrets.MEYGHAM_TOKEN }}@github.com/${{ github.repository }}.git
