@@ -8,59 +8,82 @@ interface VideoData {
 
 interface CarouselVideoProps {
   data: VideoData[];
-  timerInterval?: number; // default to 5 seconds if not specified
+  timerInterval?: number; // default to 10 seconds if not specified
 }
 
-const CarouselVideo: React.FC<CarouselVideoProps> = ({ data, timerInterval = 5000 }) => {
+const CarouselVideo: React.FC<CarouselVideoProps> = ({ data, timerInterval = 10000 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isTransitioning, setIsTransitioning] = useState(false);
 
   // Auto-advance carousel every few seconds
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % data.length);
+      handleNext();
     }, timerInterval);
     return () => clearInterval(interval); // Clear interval on unmount
   }, [data.length, timerInterval]);
 
-  const goToPrevious = () => {
-    setCurrentIndex((prevIndex) => (prevIndex - 1 + data.length) % data.length);
+  const handlePrevious = () => {
+    setIsTransitioning(true);
+    setTimeout(() => {
+      setCurrentIndex((prevIndex) => (prevIndex - 1 + data.length) % data.length);
+      setIsTransitioning(false);
+    }, 500); // Transition duration
   };
 
-  const goToNext = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % data.length);
+  const handleNext = () => {
+    setIsTransitioning(true);
+    setTimeout(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % data.length);
+      setIsTransitioning(false);
+    }, 500); // Transition duration
   };
 
   const goToIndex = (index: number) => {
-    setCurrentIndex(index);
+    setIsTransitioning(true);
+    setTimeout(() => {
+      setCurrentIndex(index);
+      setIsTransitioning(false);
+    }, 500); // Transition duration
   };
 
   return (
-    <div className="relative w-screen h-screen flex items-center justify-center overflow-hidden bg-black">
+    <div className="relative w-screen h-[92vh] flex items-center justify-center overflow-hidden bg-black">
       {/* Video Section */}
-      <video
-        className="w-full h-full object-cover"
-        src={data[currentIndex].video}
-        autoPlay
-        loop
-        muted
-      />
+      <div
+        className={`w-full h-full absolute transition-opacity duration-500 ease-in-out ${
+          isTransitioning ? 'opacity-0' : 'opacity-100'
+        }`}
+      >
+        <video
+          className="w-full h-[92vh] object-cover"
+          src={data[currentIndex].video}
+          autoPlay
+          loop
+          muted
+        />
+      </div>
 
       {/* Overlay for Title and Description */}
-      <div className="absolute bottom-8 left-8 bg-black bg-opacity-50 text-white p-4 rounded">
-        <h2 className="text-2xl font-bold">{data[currentIndex].title}</h2>
-        <p className="text-lg">{data[currentIndex].description}</p>
+      <div
+        className={`absolute bottom-14 left-44 bg-opacity-50 text-white p-4 rounded transition-transform duration-500 ease-in-out ${
+          isTransitioning ? 'opacity-0 translate-y-4' : 'opacity-100 translate-y-0'
+        }`}
+      >
+        <h2 className="text-6xl font-bold pb-4 tracking-wider">{data[currentIndex].title}</h2>
+        <p className="text-2xl w-2/4 tracking-wide">{data[currentIndex].description}</p>
       </div>
 
       {/* Navigation Arrows */}
       <button
-        onClick={goToPrevious}
-        className="absolute left-4 text-white text-3xl bg-black bg-opacity-50 p-2 rounded-full"
+        onClick={handlePrevious}
+        className="absolute left-4 text-white text-6xl bg-opacity-50 p-2 cursor-pointer"
       >
         ‹
       </button>
       <button
-        onClick={goToNext}
-        className="absolute right-4 text-white text-3xl bg-black bg-opacity-50 p-2 rounded-full"
+        onClick={handleNext}
+        className="absolute right-4 text-white text-6xl bg-opacity-50 p-2 cursor-pointer"
       >
         ›
       </button>
@@ -71,7 +94,7 @@ const CarouselVideo: React.FC<CarouselVideoProps> = ({ data, timerInterval = 500
           <button
             key={index}
             onClick={() => goToIndex(index)}
-            className={`w-3 h-3 rounded-full ${
+            className={`w-10 h-1 rounded-full ${
               index === currentIndex ? 'bg-white' : 'bg-gray-400'
             }`}
           ></button>

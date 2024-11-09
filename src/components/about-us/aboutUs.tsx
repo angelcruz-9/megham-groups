@@ -9,13 +9,13 @@ const AboutUs: React.FC = () => {
       {/* Section 1: Full-width Image with Text Overlay */}
       <div className="relative w-full h-[500px]">
         <img
-          src="/path/to/image.jpg"
+          src={`${process.env.PUBLIC_URL}` + '/assets/about-us-main.jpeg'}
           alt="About Us Image"
           className="w-full h-full object-cover"
         />
-        <div className="absolute bottom-4 left-4 bg-opacity-50 text-black p-4 rounded-md">
-          <h2 className="text-2xl font-bold">Our Story</h2>
-          <p className="mt-1">Discover who we are and what we stand for.</p>
+        <div className="absolute bottom-4 left-28 bg-opacity-50 text-white p-4 rounded-md">
+          <h2 className="text-5xl font-bold tracking-wider">About Us</h2>
+          <p className="mt-4 text-2xl w-1/2">Meygham Groups is a U.S.-based multinational conglomerate focused on diverse ventures ranging from software services to real estate and non-profits.</p>
         </div>
       </div>
 

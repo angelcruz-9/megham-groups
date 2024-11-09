@@ -2,7 +2,7 @@ import React from 'react';
 
 const OurFounders: React.FC = () => {
   return (
-    <section className="px-6 py-12 bg-gray-100">
+    <section className="px-6 py-12 bg-gray-100 h-full">
       <h2 className="text-3xl font-bold text-left mb-8">Our Founders</h2>
 
       <div className="flex flex-col lg:flex-row gap-8">
@@ -27,15 +27,15 @@ const OurFounders: React.FC = () => {
         </div>
 
         {/* Image Section */}
-        <div className="lg:w-1/2 flex flex-col sm:flex-row gap-4">
-          <div className="w-full sm:w-1/2">
+        <div className="lg:w-1/2 flex flex-col sm:flex-row sm:justify-center gap-4">
+          <div className="w-full sm:w-1/3">
             <img
               src="/path/to/founder1.jpg"
               alt="Founder 1"
               className="w-full h-full object-cover rounded-lg shadow-lg"
             />
           </div>
-          <div className="w-full sm:w-1/2">
+          <div className="w-full sm:w-1/3">
             <img
               src="/path/to/founder2.jpg"
               alt="Founder 2"

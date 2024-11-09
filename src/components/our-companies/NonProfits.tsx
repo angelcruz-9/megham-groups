@@ -2,17 +2,19 @@ import React from 'react';
 
 interface CardData {
   image: string;
-  logo: string;
-  companyName: string;
-  description: string;
+  logo?: string;
+  companyName?: string;
+  description: React.ReactNode;
 }
 
 const nonProfitData: CardData = {
-  image: '/path/to/non-profit-image.jpg',
-  logo: '/path/to/non-profit-logo.png',
-  companyName: 'Non-Profit Organization',
-  description: 'Our non-profit organization is dedicated to making a positive impact. Learn more about our mission and values.',
-};
+    image: '/path/to/service-image1.jpg',
+    // logo: '/path/to/logo1.png',
+    // companyName: 'Service Company 1',
+    description : <p>
+    <strong>MSRfoundations</strong>
+    seeks to improve underserved communities worldwide by offering education, healthcare, sustainability, food/shelter, and employment (trade and skills development) opportunities.    </p> ,
+  }
 
 const NonProfits: React.FC = () => {
   return (
@@ -22,7 +24,7 @@ const NonProfits: React.FC = () => {
           <img src={nonProfitData.image} alt={nonProfitData.companyName} className="w-full h-40 object-cover" />
           <div className="p-4 flex flex-col justify-between h-[240px]">
             <div className="mb-4">
-              <img src={nonProfitData.logo} alt={`${nonProfitData.companyName} Logo`} className="w-16 h-16 mb-2" />
+              {/* <img src={nonProfitData.logo} alt={`${nonProfitData.companyName} Logo`} className="w-16 h-16 mb-2" /> */}
               <p className="text-lg font-bold text-gray-900">{nonProfitData.companyName}</p>
               <p className="text-gray-700 mt-2">{nonProfitData.description}</p>
             </div>

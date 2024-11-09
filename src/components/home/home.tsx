@@ -5,35 +5,49 @@ import About from "./about";
 
 const videoData = [
   {
-    video: "path/to/video1.mp4",
-    title: "Amazing Video 1",
-    description: "Description for video 1",
+    video: "/assets/company.mp4",
+    title: "Our Companies",
+    description:
+      "Meygham Group is U.S.-based multinational conglomerate focused on diverse ventures ranging from software services to real estate and education.",
   },
   {
-    video: "path/to/video2.mp4",
-    title: "Amazing Video 2",
-    description: "Description for video 2",
+    video: "/assets/tech.mp4",
+    title: "Dream. Create. Thrive.",
+    description:
+      "To inspire and empower individuals, businesses, and communities to realize their dreams.",
   },
   {
-    video: "path/to/video3.mp4",
-    title: "Amazing Video 3",
-    description: "Description for video 3",
+    video: "/assets/purpose.mp4",
+    title: "Our Purpose",
+    description:
+      "we use power of business make positive difference in our communities and to help build sustainable planet.",
   },
 ];
 
 const statsData = [
-    { name: 'Projects', number: 50, description: 'Completed successfully' },
-    { name: 'Clients', number: 120, description: 'Worldwide clients' },
-    { name: 'Awards', number: 8, description: 'Recognized excellence' },
-    { name: 'Team Members', number: 200, description: 'Experienced professionals' },
-  ];
-  
-  const aboutUsText = "Meygham Partners is a diverse group of service and solution providers, specializing in various areas such as digital transformation, cloud migration, cyber security, and medical healthcare billing. With their expertise in RCM (revenue cycle management) services, they are dedicated to helping businesses and organizations navigate the complex landscape of modern technology and security. Their focus on digital transformation and cloud migration indicates a commitment to staying at the forefront of technological advancements, while their specialization in cyber security and healthcare billing demonstrates their understanding of the specific needs and challenges faced by different industries. By offering a comprehensive range of services, Meygham Partners aims to be a one-stop solution for all their clients' digital and technological needs.";
+  { name: "Total companies", number: 15, description: "Diverse Entities" },
+  { name: "Offices", number: 20, description: "4 Continents" },
+  { name: "Work Force", number: 2000, description: "U.S. based & Offshore" },
+  { name: "Happy Customers", number: 300, description: "Worldwide Customers" },
+];
 
-  const rightSectionsData = [
-    { title: 'Our Mission', description: 'To deliver quality solutions.' },
-    { title: 'Our Vision', description: 'To be a leading service provider.' },
-  ];
+const aboutUsText =
+  "Meygham Partners is a diverse group of service and solution providers, specializing in various areas such as digital transformation, cloud migration, cyber security, and medical healthcare billing.";
+
+const rightSectionsData = [
+  {
+    title: "Our Companies",
+    description:
+      "We operate diversified portfolio of businesses with global presence across several continents.",
+    image: "/assets/our-companies.png"  
+  },
+  {
+    title: "Our Purpose",
+    description:
+      "We use power of business make positive difference in our communities and to help build sustainable planet.",
+      image: "/assets/our-purpose.jpg" 
+  },
+];
 
 const Home: React.FC = () => {
   return (
@@ -41,12 +55,11 @@ const Home: React.FC = () => {
       <CaroselVideo data={videoData} />
       <Stats aboutUsText={aboutUsText} statsData={statsData} />
       <About
-      leftImage="https://example.com/image.jpg"
-      leftTitle="About Us"
-      leftDescription="We are a dedicated team focused on delivering exceptional solutions to our clients."
-      rightSections={rightSectionsData}
-    />
-
+        leftImage="/assets/about-us.jpg"
+        leftTitle="About Us"
+        leftDescription="At Meygham Group, we’re passionate about helping businesses and communities achieve their dreams."
+        rightSections={rightSectionsData}
+      />
     </div>
   );
 };

@@ -2,46 +2,99 @@ import React from 'react';
 
 interface CardData {
   image: string;
-  logo: string;
-  companyName: string;
-  description: string;
+  logo?: string;
+  companyName?: string;
+  description: React.ReactNode;
 }
 
 const servicesData: CardData[] = [
   {
     image: '/path/to/service-image1.jpg',
-    logo: '/path/to/logo1.png',
-    companyName: 'Service Company 1',
-    description: 'Service Company 1 provides excellent solutions for businesses. Learn more about what we do.',
+    // logo: '/path/to/logo1.png',
+    // companyName: 'Service Company 1',
+    description : <p>
+    <strong>Meygham Groups</strong>
+    is a global IT services and solutions company with a global network of strategic partners and extensive expertise in digital and business transformation specializing in cloud, data/AI, applications, and automation.
+    </p> ,
   },
   {
     image: '/path/to/service-image2.jpg',
     logo: '/path/to/logo2.png',
-    companyName: 'Service Company 2',
-    description: 'Service Company 2 offers innovative technology to enhance efficiency.',
+    description: <p>
+        <strong>SynapSiS</strong>
+        is a systems integrator and technology services provider with expertise in designing processes and solutions that ensures client’s success in the development of mission critical business solutions.
+    </p>,
   },
-  // Add more cards as needed
+  {
+    image: '/path/to/service-image1.jpg',
+    // logo: '/path/to/logo1.png',
+    // companyName: 'Service Company 1',
+    description : <p>
+    <strong>Infomatics, Inc.,</strong>
+    is a leading provider of technology consulting services focusing on automotive and manufacturing, and is a certified Minority Business that works with diverse Fortune 500 enterprises.
+    </p> ,
+  },
+  {
+    image: '/path/to/service-image2.jpg',
+    logo: '/path/to/logo2.png',
+    description: <p>
+        <strong>RiverPoint</strong>
+        is a leading IT enterprise services company with expertise in AI, big data, data science, Business Intelligence, cybersecurity, applications, and support.
+    </p>,
+  },
+  {
+    image: '/path/to/service-image2.jpg',
+    logo: '/path/to/logo2.png',
+    description: <p>
+        <strong>Kensington</strong>
+        Information Group is an IT services and consulting company with the goal to improve and implement technology solutions to allow its clients to become high-performance businesses.
+    </p>,
+  },
+  {
+    image: '/path/to/service-image1.jpg',
+    // logo: '/path/to/logo1.png',
+    // companyName: 'Service Company 1',
+    description : <p>
+    <strong>Axius</strong>
+    Technologies Inc., is one of the fastest growing IT talent sourcing companies providing end-to-end recruitment solutions to address the varied needs of channel partners across the globe.
+    </p> ,
+  },
+  {
+    image: '/path/to/service-image2.jpg',
+    logo: '/path/to/logo2.png',
+    description: <p>
+        <strong>i3 Infotek</strong>
+        delivers specialized services in the areas of R&D, engineering, packaging, quality and regulatory needs, to medical device and pharma manufacturers in life sciences and biotech industries.
+    </p>,
+  },
 ];
 
 const productsData: CardData[] = [
-  {
-    image: '/path/to/product-image1.jpg',
-    logo: '/path/to/product-logo1.png',
-    companyName: 'Product Company 1',
-    description: 'Product Company 1 specializes in high-quality products for global markets.',
-  },
-  {
-    image: '/path/to/product-image2.jpg',
-    logo: '/path/to/product-logo2.png',
-    companyName: 'Product Company 2',
-    description: 'Product Company 2 delivers advanced technology solutions.',
-  },
-  {
-    image: '/path/to/product-image3.jpg',
-    logo: '/path/to/product-logo3.png',
-    companyName: 'Product Company 3',
-    description: 'Product Company 3 is at the forefront of innovation.',
-  },
+    {
+        image: '/path/to/service-image2.jpg',
+        logo: '/path/to/logo2.png',
+        description: <p>
+            <strong>Farms IQ</strong>
+            empowers Agri supply chain by offering E-traceability, digital anti-counterfeiting and streamline brand protection and promotion. Leverage Farms IQ solutions and ensure complete brand protection against counterfeits, track product inventory.
+        </p>,
+      },
+      {
+        image: '/path/to/service-image1.jpg',
+        // logo: '/path/to/logo1.png',
+        // companyName: 'Service Company 1',
+        description : <p>
+        <strong>TrackEx</strong>
+        is a SaaS company offering a unified Travel & Expense Management platform for full workflow travel management designed to simply business travel.
+        </p> ,
+      },
+      {
+        image: '/path/to/service-image2.jpg',
+        logo: '/path/to/logo2.png',
+        description: <p>
+            <strong>MSRvantage</strong>
+            helps companies transform their business operations to increase or create new revenue opportunities through the MSRvantage platform utilizing cutting-edge technologies like AI, IoT, and blockchain.
+        </p>,
+      },
 ];
 
 const Technology: React.FC = () => {
@@ -55,13 +108,12 @@ const Technology: React.FC = () => {
             {servicesData.map((service, index) => (
               <div
                 key={index}
-                className="bg-white shadow-md rounded-lg overflow-hidden w-80 h-[400px] transform hover:scale-105 transition duration-300 mx-auto"
+                className="bg-white shadow-md rounded-lg overflow-hidden w-80 h-[400px] transform hover:scale-105 transition duration-300 mx-auto cursor-pointer"
               >
                 <img src={service.image} alt={service.companyName} className="w-full h-40 object-cover" />
                 <div className="p-4 flex flex-col justify-between h-[200px]">
                   <div className="mb-4">
-                    <img src={service.logo} alt={`${service.companyName} Logo`} className="w-16 h-16 mb-2" />
-                    <p className="text-lg font-bold text-gray-900">{service.companyName}</p>
+                    {/* <img src={service.logo} alt={`${service.companyName} Logo`} className="w-16 h-16 mb-2" /> */}
                     <p className="text-gray-700 mt-2">{service.description}</p>
                   </div>
                   <div className="flex justify-end">
@@ -80,12 +132,12 @@ const Technology: React.FC = () => {
             {productsData.map((product, index) => (
               <div
                 key={index}
-                className="bg-white shadow-md rounded-lg overflow-hidden w-80 h-[400px] transform hover:scale-105 transition duration-300 mx-auto"
+                className="bg-white shadow-md rounded-lg overflow-hidden w-80 h-[400px] transform hover:scale-105 transition duration-300 mx-auto cursor-pointer"
               >
                 <img src={product.image} alt={product.companyName} className="w-full h-40 object-cover" />
                 <div className="p-4 flex flex-col justify-between h-[200px]">
                   <div className="mb-4">
-                    <img src={product.logo} alt={`${product.companyName} Logo`} className="w-16 h-16 mb-2" />
+                    {/* <img src={product.logo} alt={`${product.companyName} Logo`} className="w-16 h-16 mb-2" /> */}
                     <p className="text-lg font-bold text-gray-900">{product.companyName}</p>
                     <p className="text-gray-700 mt-2">{product.description}</p>
                   </div>
