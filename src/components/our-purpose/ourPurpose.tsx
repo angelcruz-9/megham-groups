@@ -34,7 +34,7 @@ const OurPurpose: React.FC = () => {
       <div className="relative w-full h-[400px] sm:h-[500px] md:h-[600px]">
         <img
           src={`${process.env.PUBLIC_URL}/assets/our-purpose.jpeg`}
-          alt="About Us Image"
+          alt="Our purpose"
           className="w-full h-full object-cover"
         />
         <div className="absolute bottom-4 left-6 sm:left-28 bg-opacity-50 text-white p-4 rounded-md">

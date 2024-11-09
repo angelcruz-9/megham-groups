@@ -116,7 +116,7 @@ const Technology: React.FC = () => {
                   <p className="text-gray-700 mt-2">{service.description}</p>
                 </div>
                 <div className="flex justify-end">
-                  <a href="#" className="text-blue-500 hover:underline font-semibold">Learn More</a>
+                  <a href="/" className="text-blue-500 hover:underline font-semibold">Learn More</a>
                 </div>
               </div>
             </div>
@@ -139,7 +139,7 @@ const Technology: React.FC = () => {
                   <p className="text-gray-700 mt-2">{product.description}</p>
                 </div>
                 <div className="flex justify-end">
-                  <a href="#" className="text-blue-500 hover:underline font-semibold">Learn More</a>
+                  <a href="/" className="text-blue-500 hover:underline font-semibold">Learn More</a>
                 </div>
               </div>
             </div>
