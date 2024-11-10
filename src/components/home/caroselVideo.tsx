@@ -57,7 +57,7 @@ const CarouselVideo: React.FC<CarouselVideoProps> = ({ data, timerInterval = 100
       >
         <video
           className="w-full h-full object-cover"
-          src={data[currentIndex].video}
+          src={`${process.env.PUBLIC_URL}${data[currentIndex].video}`}
           autoPlay
           loop
           muted

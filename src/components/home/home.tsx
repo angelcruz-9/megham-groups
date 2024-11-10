@@ -5,7 +5,7 @@ import About from "./about";
 
 const videoData = [
   {
-    video: "/assets/company.mp4",
+    video: "/assets/our-company.mp4",
     title: "Our Companies",
     description:
       "Meygham Group is U.S.-based multinational conglomerate focused on diverse ventures ranging from software services to real estate and education.",
