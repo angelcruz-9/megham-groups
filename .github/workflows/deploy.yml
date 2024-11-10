@@ -1,4 +1,4 @@
-name: Deploy React App to GitHub Pages
+name: Deploy to GitHub Pages
 
 on:
   push:
@@ -8,10 +8,6 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-
-    permissions:
-      contents: write  # Grants permission to push changes
-      id-token: write  # Grants token permissions needed for GitHub Pages
 
     steps:
       # Step 1: Check out the code
