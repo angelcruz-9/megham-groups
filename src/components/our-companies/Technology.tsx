@@ -97,34 +97,6 @@ const productsData: CardData[] = [
       },
 ];
 
-const productsData: CardData[] = [
-    {
-        image: '/path/to/service-image2.jpg',
-        logo: '/path/to/logo2.png',
-        description: <p>
-            <strong>Farms IQ</strong>
-            empowers Agri supply chain by offering E-traceability, digital anti-counterfeiting and streamline brand protection and promotion. Leverage Farms IQ solutions and ensure complete brand protection against counterfeits, track product inventory.
-        </p>,
-      },
-      {
-        image: '/path/to/service-image1.jpg',
-        // logo: '/path/to/logo1.png',
-        // companyName: 'Service Company 1',
-        description : <p>
-        <strong>TrackEx</strong>
-        is a SaaS company offering a unified Travel & Expense Management platform for full workflow travel management designed to simply business travel.
-        </p> ,
-      },
-      {
-        image: '/path/to/service-image2.jpg',
-        logo: '/path/to/logo2.png',
-        description: <p>
-            <strong>MSRvantage</strong>
-            helps companies transform their business operations to increase or create new revenue opportunities through the MSRvantage platform utilizing cutting-edge technologies like AI, IoT, and blockchain.
-        </p>,
-      },
-];
-
 const Technology: React.FC = () => {
   return (
     <div className="px-4 py-8">
