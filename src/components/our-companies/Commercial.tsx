@@ -9,7 +9,7 @@ interface CardData {
 
 const commercialData: CardData[] = [
   {
-    image: '/path/to/service-image2.jpg',
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT81r5HFzHg75VlJ7pOWhnB78BcMl70zGR-zQ&s',
     description: (
       <p>
         <strong>MSRcommunities</strong> is an international builder of residential homes with a design focus on
@@ -18,7 +18,7 @@ const commercialData: CardData[] = [
     ),
   },
   {
-    image: '/path/to/service-image2.jpg',
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcnImXSnQMKP6FGPx4BKbqi51FzEKrSiwgpQ&s',
     description: (
       <p>
         <strong>MSRsilver</strong> is a global supplier of high-quality silver goods, including jewelry, utensils,
@@ -27,7 +27,7 @@ const commercialData: CardData[] = [
     ),
   },
   {
-    image: '/path/to/service-image2.jpg',
+    image: 'https://www.msrcapital.com/wp-content/uploads/2024/03/MSR-Logomobile.jpg',
     description: (
       <p>
         <strong>MSRcapital</strong> is a tech accelerator providing resources, funding, and mentorship to
@@ -37,7 +37,7 @@ const commercialData: CardData[] = [
     ),
   },
   {
-    image: '/path/to/service-image1.jpg',
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUL8TYE2zikK6XtMlIknl9hikMKA4wTSnjbA&s',
     description: (
       <p>
         <strong>MSRhotels</strong> is an India-based hotel chain that sets a new standard for luxury business

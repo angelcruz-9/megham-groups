@@ -8,7 +8,7 @@ interface CardData {
 }
 
 const nonProfitData: CardData = {
-  image: '/path/to/service-image1.jpg',
+  image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQaKXDshVDtvGISLZXOKW7RwJdS0Acfx4_LNQ&s',
   description: (
     <p>
       <strong>MSRfoundations</strong> seeks to improve underserved communities worldwide by offering education,
