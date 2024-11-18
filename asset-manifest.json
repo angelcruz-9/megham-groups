@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/megham-groups/static/css/main.36c1e79a.css",
-    "main.js": "/megham-groups/static/js/main.4a2e3953.js",
+    "main.js": "/megham-groups/static/js/main.efcd44ac.js",
     "index.html": "/megham-groups/index.html",
     "main.36c1e79a.css.map": "/megham-groups/static/css/main.36c1e79a.css.map",
-    "main.4a2e3953.js.map": "/megham-groups/static/js/main.4a2e3953.js.map"
+    "main.efcd44ac.js.map": "/megham-groups/static/js/main.efcd44ac.js.map"
   },
   "entrypoints": [
     "static/css/main.36c1e79a.css",
-    "static/js/main.4a2e3953.js"
+    "static/js/main.efcd44ac.js"
   ]
 }
