@@ -5,11 +5,11 @@ import Values from './values';
 
 const AboutUs: React.FC = () => {
   return (
-    <div className="space-y-8">
+    <div className="space-y-8" id='about-us'>
       {/* Section 1: Full-width Image with Text Overlay */}
       <div className="relative w-full h-[300px] sm:h-[400px] lg:h-[500px]">
         <img
-          src={`${process.env.PUBLIC_URL}/assets/about-us-main.jpeg`}
+          src={`${process.env.PUBLIC_URL}/assets/about-us-main.jpg`}
           alt="About Us"
           className="w-full h-full object-cover"
         />

@@ -1,14 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 const ContactUs: React.FC = () => {
-  const [activeAccordion, setActiveAccordion] = useState<string | null>(null);
-
-  const toggleAccordion = (country: string) => {
-    setActiveAccordion(activeAccordion === country ? null : country);
-  };
-
   return (
-    <div className="space-y-16">
+    <div className="space-y-16" id='contact-us'>
       {/* Section 1: Full-width Image with Text Overlay */}
       <div className="relative w-full h-[400px] md:h-[500px]">
         <img
@@ -57,42 +51,6 @@ const ContactUs: React.FC = () => {
         </form>
       </div>
 
-      {/* Section 3: Accordion for Locations */}
-      <div className="max-w-3xl container mx-auto">
-        <h3 className="text-2xl font-semibold mb-4 text-center">Our Locations</h3>
-        <div className="space-y-4">
-          {['India', 'USA'].map((country) => (
-            <div key={country}>
-              <button
-                onClick={() => toggleAccordion(country)}
-                className="w-full text-left p-4 bg-gray-200 rounded-lg font-semibold flex justify-between items-center"
-              >
-                {country}
-                <span>{activeAccordion === country ? '-' : '+'}</span>
-              </button>
-              {activeAccordion === country && (
-                <div className="p-4 bg-white rounded-lg shadow-inner mt-2 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                  <div className="bg-gray-100 p-4 rounded-lg">
-                    <h4 className="font-semibold text-gray-800">Office 1</h4>
-                    <p className="text-gray-600">
-                      123 Business St.<br />
-                      City, State, Zip Code
-                    </p>
-                  </div>
-                  <div className="bg-gray-100 p-4 rounded-lg">
-                    <h4 className="font-semibold text-gray-800">Office 2</h4>
-                    <p className="text-gray-600">
-                      456 Main Rd.<br />
-                      City, State, Zip Code
-                    </p>
-                  </div>
-                  {/* Add more offices as needed */}
-                </div>
-              )}
-            </div>
-          ))}
-        </div>
-      </div>
     </div>
   );
 };

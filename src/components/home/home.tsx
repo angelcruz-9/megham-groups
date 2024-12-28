@@ -1,23 +1,24 @@
 import React from "react";
-import CaroselVideo from "./caroselVideo";
 import Stats from "./stats";
 import About from "./about";
+import OurCompanies from "../our-companies/ourCompanies";
+import AboutUs from "../about-us/aboutUs";
+import OurPurpose from "../our-purpose/ourPurpose";
+import ContactUs from "../contactUs/contactUs";
+import StaticDisplay from "./caroselVideo";
 
-const videoData = [
+const StaticData = [
   {
-    video: "/assets/our-company.mp4",
     title: "Our Companies",
     description:
       "Meygham Group is U.S.-based multinational conglomerate focused on diverse ventures ranging from software services to real estate and education.",
   },
   {
-    video: "/assets/tech.mp4",
     title: "Dream. Create. Thrive.",
     description:
       "To inspire and empower individuals, businesses, and communities to realize their dreams.",
   },
   {
-    video: "/assets/purpose.mp4",
     title: "Our Purpose",
     description:
       "we use power of business make positive difference in our communities and to help build sustainable planet.",
@@ -25,10 +26,10 @@ const videoData = [
 ];
 
 const statsData = [
-  { name: "Total companies", number: 15, description: "Diverse Entities" },
-  { name: "Offices", number: 20, description: "4 Continents" },
-  { name: "Work Force", number: 2000, description: "U.S. based & Offshore" },
-  { name: "Happy Customers", number: 300, description: "Worldwide Customers" },
+  { name: "Total Companies", start: 0, end: 7, description: "Diverse Entities" },
+  { name: "Offices", start: 0, end: 10, description: "4 Continents" },
+  { name: "Workforce", start: 90, end: 100, description: "Americas, Europe, Asia" },
+  { name: "Happy Customers", start: 0, end: 50, description: "Worldwide Customers" },
 ];
 
 const aboutUsText =
@@ -52,7 +53,7 @@ const rightSectionsData = [
 const Home: React.FC = () => {
   return (
     <div className="flex flex-col items-center space-y-6">
-      <CaroselVideo data={videoData} />
+      <StaticDisplay data={StaticData} staticImage="/assets/meygham.avif"/>
       <Stats aboutUsText={aboutUsText} statsData={statsData} />
       <About
         leftImage="/assets/about-us.jpg"
@@ -60,6 +61,10 @@ const Home: React.FC = () => {
         leftDescription="At Meygham Group, we’re passionate about helping businesses and communities achieve their dreams."
         rightSections={rightSectionsData}
       />
+      <OurCompanies/>
+      <AboutUs />
+      <OurPurpose />
+      <ContactUs />
     </div>
   );
 };

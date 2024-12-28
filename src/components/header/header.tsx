@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { Link } from 'react-router-dom';
 
 const navItems = [
-  { label: "Our Companies", href: "/our-companies" },
-  { label: "About Us", href: "/about-us" },
-  { label: "Our Purpose", href: "/our-purpose" },
-  { label: "Contact Us", href: "/contact-us" },
+  { label: "Our Companies", href: "#our-companies" },
+  { label: "About Us", href: "#about-us" },
+  { label: "Our Purpose", href: "#our-purpose" },
+  { label: "Contact Us", href: "#contact-us" },
 ];
 
 const Header: React.FC = () => {
@@ -27,12 +26,12 @@ const Header: React.FC = () => {
   };
 
   return (
-    <header className="bg-white shadow-md">
+    <header className="bg-white shadow-md sticky top-0 z-50">
       <div className="container mx-auto p-6 flex items-center justify-between">
         {/* Logo */}
-        <Link to="/" className="text-2xl font-bold text-purple-800">
+        <a href="/" className="text-2xl font-bold text-purple-800">
           Meygham
-        </Link>
+        </a>
 
         {/* Hamburger Menu Icon (shown on mobile) */}
         <button
@@ -49,15 +48,15 @@ const Header: React.FC = () => {
         <nav className="hidden lg:flex space-x-8">
           {navItems.map((item, index) => (
             <div className="relative group" key={index}>
-              <Link
-                to={item.href}
+              <a
+                href={item.href}
                 className={`text-gray-500 text-lg font-medium transition-all duration-200 pb-4 ${
                   activeIndex === index ? "text-gray-950" : "hover:text-gray-800"
                 }`}
                 onClick={() => handleLinkClick(index)}
               >
                 {item.label}
-              </Link>
+              </a>
               {/* Underline animation */}
               <span
                 className={`absolute bottom-0 top-8 left-0 h-0.5 bg-gray-700 transition-all duration-500 ease-in-out ${
@@ -73,16 +72,16 @@ const Header: React.FC = () => {
           <nav className="absolute top-16 left-0 w-full bg-white shadow-md lg:hidden z-50">
             <div className="flex flex-col items-start px-6 py-4 space-y-4">
               {navItems.map((item, index) => (
-                <Link
+                <a
                   key={index}
-                  to={item.href}
+                  href={item.href}
                   className={`text-gray-700 text-lg font-medium transition-all duration-200 ${
                     activeIndex === index ? "text-gray-900" : "hover:text-gray-800"
                   }`}
                   onClick={() => handleLinkClick(index)}
                 >
                   {item.label}
-                </Link>
+                </a>
               ))}
             </div>
           </nav>
