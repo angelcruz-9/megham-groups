@@ -84,7 +84,7 @@ const OurCompanies: React.FC = () => {
               <img
                 src={`${process.env.PUBLIC_URL}${company.image}`}
                 alt={company.title}
-                className="w-full h-full object-cover transition-transform duration-500 ease-in-out transform hover:scale-110"
+                className="w-full h-full transition-transform duration-500 ease-in-out transform hover:scale-110"
               />
             </div>
             <div className="p-6 z-20 relative flex flex-col justify-between">
