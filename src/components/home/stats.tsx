@@ -1,83 +1,67 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 
 interface StatsItem {
-  name: string;
-  start: number;
-  end: number;
+  logo: string;
+  title: string;
   description: string;
 }
 
 interface StatsProps {
   aboutUsText: string;
-  statsData: StatsItem[];
+  companyData: StatsItem[];
 }
 
-const formatNumber = (num: number): string => {
-  return num < 10 ? `0${num}` : `${num}`;
-};
-
-const Stats: React.FC<StatsProps> = ({ aboutUsText, statsData }) => {
-  const [currentStats, setCurrentStats] = useState<number[]>([]);
-
+const Stats: React.FC<StatsProps> = ({ aboutUsText, companyData }) => {
   useEffect(() => {
-    const intervals: NodeJS.Timeout[] = [];
-
-    statsData.forEach((stat, index) => {
-      let current = stat.start;
-
-      const interval = setInterval(() => {
-        setCurrentStats((prevStats) => {
-          const newStats = [...prevStats];
-          newStats[index] = Math.min(current, stat.end);
-          return newStats;
-        });
-
-        if (current < stat.end) {
-          current += 1; // Increment the value
-        } else {
-          clearInterval(interval); // Stop the animation when the value reaches the end
-        }
-      }, 100); // Adjust the interval speed as needed
-
-      intervals.push(interval);
-    });
-
-    setCurrentStats(statsData.map((stat) => stat.start)); // Initialize current stats with start values
-
+    const style = document.createElement("style");
+    style.innerHTML = `
+      @keyframes water {
+        0% { transform: translateY(0); opacity: 0.3; }
+        50% { transform: translateY(-10px); opacity: 0.6; }
+        100% { transform: translateY(0); opacity: 0.3; }
+      }
+      .animate-water {
+        animation: water 2s infinite;
+      }
+    `;
+    document.head.appendChild(style);
     return () => {
-      intervals.forEach((interval) => clearInterval(interval)); // Cleanup intervals on component unmount
+      document.head.removeChild(style);
     };
-  }, [statsData]);
+  }, []);
 
   return (
-    <section className="flex flex-col md:flex-row w-full h-full py-8 sm:py-12">
-      {/* Left Section - About Us */}
-      <div className="flex-1 bg-violet-950 border-r-0 md:border-r-2 border-gray-300 p-6 sm:p-12 py-16 sm:py-28 flex flex-col justify-end items-end text-center md:text-right">
-        <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-white w-full md:w-3/4 lg:w-1/2">
-          About Meygham
-        </h2>
-        <p className="text-sm sm:text-base text-gray-200 w-full md:w-3/4 lg:w-1/2">
-          {aboutUsText}
-        </p>
+    <section className="flex flex-col items-center w-full h-full py-24 ">
+      <div className="text-center mb-8">
+        <h2 className="text-3xl font-bold">{aboutUsText}</h2>
       </div>
 
-      {/* Right Section - Stats */}
-      <div className="flex-1 grid grid-cols-1 sm:grid-cols-2 gap-4 p-6 sm:px-8 lg:px-12">
-        {statsData.map((item, index) => (
-          <div
-            key={index}
-            className="bg-white shadow-lg p-6 rounded-md flex flex-col items-center justify-center text-center border border-gray-200"
-          >
-            <h3 className="text-lg sm:text-xl font-semibold text-gray-800">
-              {item.name}
-            </h3>
-            <p className="text-3xl sm:text-4xl font-bold text-blue-600 my-2">
-            {formatNumber(currentStats[index] || 0)}
-              {item.end >= 50 && "+"}
-            </p>
-            <p className="text-sm sm:text-md text-gray-600">
-              {item.description}
-            </p>
+      <div className="grid md:grid-cols-3 gap-8 w-full px-12">
+        {companyData.map((company, index) => (
+          <div key={index} className="flex items-center space-x-6 p-4 ">
+            {/* Logo with animation */}
+            <div className="relative flex items-center justify-center w-24 h-24">
+              {/* Outer Circle */}
+              <div className="absolute w-28 h-28 border-2 border-blue-500 rounded-full animate-pulse"></div>
+              {/* Inner Circle */}
+              <div className="absolute w-24 h-24 border-2 border-blue-300 rounded-full"></div>
+              {/* Logo */}
+              <div className="relative w-20 h-20 flex items-center justify-center bg-white rounded-full overflow-hidden group">
+                <img
+                  src={company.logo}
+                  alt={company.title}
+                  className="w-full h-full object-cover transition-transform group-hover:scale-110"
+                />
+                {/* Water Animation Effect */}
+                <div className="absolute inset-0 bg-blue-500 opacity-0 group-hover:opacity-30 transition-opacity rounded-full animate-water"></div>
+              </div>
+            </div>
+
+            {/* Title & Description */}
+            <div>
+              <h3 className="text-xl font-semibold text-black pb-4">{company.title}</h3>
+              <p className="text-gray-400">{company.description}</p>
+            </div>
           </div>
         ))}
       </div>

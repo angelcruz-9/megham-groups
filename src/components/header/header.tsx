@@ -2,14 +2,15 @@ import React, { useState, useEffect } from "react";
 
 const navItems = [
   { label: "Our Companies", href: "#our-companies" },
-  { label: "About Us", href: "#about-us" },
-  { label: "Our Purpose", href: "#our-purpose" },
+  { label: "Success Stories", href: "#about-us" },
+  { label: "Our Team", href: "#our-purpose" },
   { label: "Contact Us", href: "#contact-us" },
 ];
 
 const Header: React.FC = () => {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   // Load active index from localStorage if available
   useEffect(() => {
@@ -25,11 +26,24 @@ const Header: React.FC = () => {
     setMobileMenuOpen(false); // Close mobile menu on link click
   };
 
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50); // Adds shadow when scrolled past 50px
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <header className="bg-white shadow-md sticky top-0 z-50">
+    <header
+      className={`sticky top-0 z-50 transition-all duration-300 ${
+        isScrolled ? "bg-white shadow-md" : "bg-blue-400"
+      }`}
+    >
       <div className="container mx-auto p-6 flex items-center justify-between">
         {/* Logo */}
-        <a href="/" className="text-2xl font-bold text-purple-800">
+        <a href="/" className="text-2xl font-bold text-white">
           Meygham
         </a>
 
@@ -50,7 +64,9 @@ const Header: React.FC = () => {
             <div className="relative group" key={index}>
               <a
                 href={item.href}
-                className={`text-gray-500 text-lg font-medium transition-all duration-200 pb-4 ${
+                className={` ${
+                  isScrolled ? "text-black" : "text-white"
+                }  text-lg font-medium transition-all duration-200 pb-4 ${
                   activeIndex === index ? "text-gray-950" : "hover:text-gray-800"
                 }`}
                 onClick={() => handleLinkClick(index)}

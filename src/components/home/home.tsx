@@ -2,67 +2,91 @@ import React from "react";
 import Stats from "./stats";
 import About from "./about";
 import OurCompanies from "../our-companies/ourCompanies";
-import AboutUs from "../about-us/aboutUs";
 import OurPurpose from "../our-purpose/ourPurpose";
 import ContactUs from "../contactUs/contactUs";
 import StaticDisplay from "./caroselVideo";
 
-const StaticData = [
+const StaticData = 
   {
-    title: "Our Companies",
+    title: "Architecting tomorrow’s enterprise, today.",
     description:
-      "Meygham Group is U.S.-based multinational conglomerate focused on diverse ventures ranging from software services to real estate and education.",
-  },
-  {
-    title: "Dream. Create. Thrive.",
-    description:
-      "To inspire and empower individuals, businesses, and communities to realize their dreams.",
-  },
-  {
-    title: "Our Purpose",
-    description:
-      "we use power of business make positive difference in our communities and to help build sustainable planet.",
-  },
-];
-
-const statsData = [
-  { name: "Total Companies", start: 0, end: 7, description: "Diverse Entities" },
-  { name: "Offices", start: 0, end: 10, description: "4 Continents" },
-  { name: "Workforce", start: 90, end: 100, description: "Americas, Europe, Asia" },
-  { name: "Happy Customers", start: 0, end: 50, description: "Worldwide Customers" },
-];
+      "We are at the forefront of architecting intelligent solutions that transform how businesses operate, innovate, and succeed.",
+  }
 
 const aboutUsText =
-  "Meygham Partners is a diverse group of service and solution providers, specializing in various areas such as digital transformation, cloud migration, cyber security, and medical healthcare billing.";
+  "Our ensemble of specialized companies creates perfect technology solutions to transform your business landscape";
 
-const rightSectionsData = [
-  {
-    title: "Our Companies",
-    description:
-      "We operate diversified portfolio of businesses with global presence across several continents.",
-    image: "/assets/our-companies.png"  
-  },
-  {
-    title: "Our Purpose",
-    description:
-      "We use power of business make positive difference in our communities and to help build sustainable planet.",
-      image: "/assets/our-purpose.jpg" 
-  },
-];
+  const companyData = [
+    {
+      logo: "/assets/company1.png",
+      title: "Tech Innovators",
+      description: "Pioneering AI and cloud solutions to drive digital transformation.",
+    },
+    {
+      logo: "/assets/company2.png",
+      title: "HealthSync",
+      description: "Revolutionizing healthcare with smart, data-driven technology.",
+    },
+    {
+      logo: "/assets/company3.png",
+      title: "Eco Energy",
+      description: "Sustainable energy solutions for a greener future.",
+    },
+    {
+      logo: "/assets/company4.png",
+      title: "FinSecure",
+      description: "Innovative fintech solutions for secure and seamless transactions.",
+    },
+    {
+      logo: "/assets/company5.png",
+      title: "Auto AI",
+      description: "Advancing autonomous driving with AI-powered systems.",
+    },
+    {
+      logo: "/assets/company6.png",
+      title: "EduTech Global",
+      description: "Transforming education with digital learning platforms.",
+    },
+  ];
+
+  const customerStories = [
+    {
+      id: 1,
+      title: "Kairos Technologies",
+      description: "Achieving Excellence through Total Quality Assurance",
+      href: "/"
+    },
+    {
+      id: 2,
+      title: "Solunus",
+      description: "Helping resolve data integration issues using Salesforce",
+      href: "/"
+    },
+    {
+      id: 3,
+      title: "Mergen IT",
+      description: "Mergen IT Uses ServiceNow to Enhance Incident Management and Resolve High-Priority Issues for a Banking and Financial Client",
+      href: "/"
+    },
+    {
+      id: 4,
+      title: "Kodeus",
+      description: "The Kodeus Multi-Agent Framework (K-MAF) redefines AI by integrating human-like sentience, adaptability, and decentralized intelligence.",
+      href: "/"
+    },
+  ];
+  
+    
 
 const Home: React.FC = () => {
   return (
     <div className="flex flex-col items-center space-y-6">
-      <StaticDisplay data={StaticData} staticImage="/assets/meygham.avif"/>
-      <Stats aboutUsText={aboutUsText} statsData={statsData} />
+      <StaticDisplay data={StaticData} />
+      <Stats aboutUsText={aboutUsText} companyData={companyData} />
       <About
-        leftImage="/assets/about-us.jpg"
-        leftTitle="About Us"
-        leftDescription="At Meygham Group, we’re passionate about helping businesses and communities achieve their dreams."
-        rightSections={rightSectionsData}
+        customersData={customerStories}
       />
       <OurCompanies/>
-      <AboutUs />
       <OurPurpose />
       <ContactUs />
     </div>
